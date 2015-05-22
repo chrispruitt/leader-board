@@ -1,0 +1,496 @@
+@import "../bootstrap/variables.less";
+@import "../bootstrap/mixins.less";
+
+
+@font-face {
+  font-family: 'NimbusSanCon-Reg';
+  src: url('@{base-font-dir}/292584_0_0.eot');
+  src: url('@{base-font-dir}/292584_0_0.eot?#iefix') format('embedded-opentype'),url('@{base-font-dir}/292584_0_0.woff') format('woff'),url('@{base-font-dir}/292584_0_0.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family: 'NimbusSanCon-Bol';
+  src: url('@{base-font-dir}/292584_1_0.eot');
+  src: url('@{base-font-dir}/292584_1_0.eot?#iefix') format('embedded-opentype'),url('@{base-font-dir}/292584_1_0.woff') format('woff'),url('@{base-font-dir}/292584_1_0.ttf') format('truetype');
+}
+
+body {
+  font-family: Tahoma, Helvetica, Arial;
+  background: #363636;
+  height: 100%;
+  margin: 0;
+}
+
+
+h4 {
+  margin-top: 18px;
+}
+/*-------------HEADER---------------------------------------*/
+
+.header-status {
+  position: absolute;
+  top: 113px;
+  right: 28px;
+  list-style: none;
+}
+.header-status li {
+  margin: 0;
+  padding: 2px 12px;
+  text-align: center;
+  width: auto;
+  border-right: 1px solid #dcdcdc;
+  .box-shadow(1px 0 0 0 white);
+  text-shadow: 0 1px 0 white;
+  float: none;
+  display: inline-block;
+}
+.header-status li:last-child {
+  .box-shadow(none);
+  border: none;
+}
+.header-status .title {
+  font-size: 12px;
+  color: @gray;
+}
+.header-status .value {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .header-status {
+    position: relative;
+    display: block;
+    float: none;
+    top: auto;
+    right: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .header-status {
+    top: 61px;
+  }
+}
+
+#header {
+  background-color: #fff;
+  border: none;
+  border-top: 4px solid #333;
+}
+
+#header h1 {
+  background: url("@{base-image-dir}/logo-edo-responsive.png") no-repeat scroll 0 0 transparent;
+  width: 142px;
+  text-indent: -999px;
+  margin: 3px auto;
+  height: 32px;
+}
+
+#header h1 a {
+  height: 32px;
+  width: 142px;
+  display: block;
+}
+
+#header .nav {
+  display: inline-block;
+  margin: 8px auto 0 auto;
+}
+
+#header .nav>li>a {
+  padding: 4px 6px;
+}
+
+#header a {
+  color: #666;
+  font-size: 10px;
+}
+
+
+#header a:hover {
+  color: #333;
+}
+
+#header .nav {
+  margin-top: 8px;
+}
+
+#header .nav .caret, #header .nav a:hover .caret {
+  border-top-color: #999;
+  border-bottom-color: #999;
+}
+
+/*edo.css override*/
+#header-info {
+  text-align: left;
+}
+
+.header-status {
+  position: inherit;
+  top: auto;
+  right: auto;
+  margin: 4px 0;
+  padding-left: 0;
+}
+
+.header-status .value {
+  font-size: 12px;
+  font-weight: bold;
+  display: inline;
+  margin: 0 0 0 6px;
+  float: right;
+}
+
+.header-status .title {
+  font-size: 12px;
+  float: left;
+}
+
+
+
+/*-------------SIDEBAR---------------------------------------*/
+#sidebar .call-out-box {
+  margin-top: 22px;
+  .center-block();
+  padding: 20px;
+  .make-md-column(10);
+  .make-md-column-offset(1);
+  background-color: #e5e5e5;
+  .box-shadow(0 2px 5px rgba(0, 0, 0, 0.3) inset);
+  border-radius: 5px;
+  line-height: 22px;
+}
+#sidebar .call-out-image {
+  margin-bottom: 10px;
+  .center-block();
+}
+
+#sidebar, #sidebar-nav, #sidebar-nav ul {
+  padding: 0;
+}
+
+#sidebar-nav > ul.list-group {
+  border-bottom: 1px solid #4E4E4E;
+}
+
+#sidebar-nav .list-group li {
+  border-radius: 0;
+  border: none;
+  border-top:  1px solid #4E4E4E;
+  border-bottom: 1px solid #4E4E4E;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 0;
+  margin-bottom: -1px;
+}
+
+#sidebar-nav a:hover {
+  background-color: #4A4A4A;
+}
+
+#sidebar-nav li a {
+  color: #aaa;
+  text-decoration: none;
+  display: block;
+  padding: 10px 15px;
+}
+
+
+#sidebar-nav li.active a {
+  background-color: #333;
+  background: url("@{base-image-dir}/menu-active.png") no-repeat right center;
+  /*box-shadow: 0 2px 4px rgba(0,0,0,0.2) inset;*/
+}
+
+
+#sidebar-nav li.active a {
+  color: #fff;
+}
+
+#sidebar-nav li a .icon {
+  display: inline-block;
+  width: 16px;
+  margin-right: 10px;
+}
+
+#sidebar-nav ul ul {
+  background-color: #2A2A2A;
+  .box-shadow(0 0 3px rgba(0,0,0,0.5) inset);
+}
+
+#sidebar-nav ul ul li a {
+  padding-left: 15px;
+}
+
+#sidebar-nav ul ul li a:hover {
+  color: #ddd;
+  background-color: #272727;
+}
+
+/*-------------FOOTER---------------------------------------*/
+#footer  {
+  margin: 0;
+  padding: 24px;
+  border: none;
+}
+
+#footer h4 {
+  font-size: 15px;
+  color: #e4743f;
+  font-weight: normal;
+}
+
+#footer .social-networks {
+  list-style: none outside none;
+  margin: -4px 0 0 0;
+  overflow: hidden;
+  padding: 4px 0 0;
+}
+.social-networks li {
+  float: left;
+  padding: 0 6px 7px 0;
+}
+.social-networks .linkedin,
+.social-networks .twitter,
+.social-networks .rss,
+.social-networks .mail {
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 33px;
+  display: block;
+  height: 33px;
+  background: url('@{base-image-dir}/bg-social-networks.png') no-repeat !important;
+}
+.social-networks .twitter {
+  background: url('@{base-image-dir}/bg-social-networks.png') no-repeat -39px 0 !important;
+}
+.social-networks .rss {
+  background: url('@{base-image-dir}/bg-social-networks.png') no-repeat -77px 0 !important;
+}
+.social-networks .mail {
+  background: url('@{base-image-dir}/bg-social-networks.png') no-repeat -117px 0 !important;
+}
+
+
+/*-------------MAIN CONTENT---------------------------------------*/
+
+#content {
+  background-color: #fff;
+  border-top-left-radius: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#content-header {
+  #gradient > .vertical(#f5f5f5, #ffffff);
+  border-top: 1px solid #f5f5f5;
+}
+
+#content-header h1 {
+  color: #555;
+  font: 26px NimbusSanCon-Bol;
+  margin: 9px 0 0 9px;
+}
+
+
+.breadcrumb {
+  margin-left: 9px;
+  color: #666;
+}
+
+.breadcrumb .active {
+  color: #5c8727;
+}
+
+.breadcrumb .icon {
+  margin-right: 5px;
+}
+
+.breadcrumb>li+li:before {
+  content: "\00bb\00a0";
+  color: #aaa;
+}
+
+#main-body {
+  background: #fff;
+  /*border: 1px solid #e3e3e3;*/
+  margin: 0;
+  padding: 8px;
+}
+
+.stat-boxes li {
+  display: inline-block;
+  text-align: center;
+  list-style: none;
+  line-height: 18px;
+  margin: 0 10px 10px;
+  padding: 0 10px;
+}
+
+.stat-boxes .left {
+  min-height: 45px;
+  border-right: 1px solid #DCDCDC;
+  .box-shadow(1px 0 0 0 #FFFFFF);
+  margin-right: 12px;
+  padding: 10px 14px 6px 4px;
+  font-size: 10px;
+  font-weight: bold;
+  float: left;
+}
+
+.stat-boxes .right {
+  font-size: 12px;
+  padding: 6px 0 5px 0;
+  text-align: center;
+  color: #666666;
+  float:left;
+}
+
+.stat-boxes .right strong {
+  font-size: 26px;
+  margin-bottom: 3px;
+  margin-top: 6px;
+  font-weight: bold;
+  display: block;
+}
+
+.btn-group .active {
+  background: @brand-success;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  #header {
+    border-top-width: 6px;
+  }
+  #header h1 {
+    background-image: url("@{base-image-dir}/logo-edo.png");
+    height: 70px;
+    margin: 8px 0;
+  }
+
+  #header h1 a {
+    height: 70px;
+    width: 142px;
+    display: block;
+  }
+
+  #header a {
+    font-size: 12px;
+  }
+
+  #header .nav>li>a {
+    padding: 10px 15px;
+  }
+
+  #content-header h1 {
+    font-size: 32px;
+
+  }
+
+  #main-body {
+    padding: 20px;
+  }
+
+
+  #sidebar-nav li a span {
+    display: none;
+  }
+
+
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 100%;
+  }
+  #sidebar-nav li a span {
+    display: inline;
+  }
+  #sidebar-nav ul ul li a {
+    padding-left: 30px;
+  }
+  #content-header h1 {
+    margin: 16px 0 12px 9px;
+  }
+  #header-info {
+    text-align: right;
+  }
+  .header-status .value {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin: 0;
+    float: none;
+  }
+
+  .header-status .title {
+    font-size: 12px;
+    float: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 100%;
+  }
+}
+
+//Generic styles from EDO-MARKETPLACE.LESS
+
+#footer {
+  background: url("@{base-image-dir}/unicorn-edo-bg.png");
+  .opacity(0.92);
+  border-top: 1px solid #fff;
+  .box-shadow(0 7px 16px -15px #888888 inset);
+  text-align: left;
+  font-size: 13px;
+}
+#footer h4 {
+  margin-top: 0;
+}
+#footer ul {
+  margin: -4px 0 20px 16px;
+  padding: 0;
+}
+#footer a {
+  color: #888;
+}
+#footer a:hover {
+  color: #666;
+}
+#footer p {
+  color: #999;
+}
+
+#footer .phone {
+  color: #5c8727;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: normal;
+  text-shadow: -1px 1px 3px rgba(0, 0, 0, 0.4);
+  margin-top: 16px;
+}
+
+@media (max-width: 480px) {
+  #footer {
+    margin-left: 0 !important;
+  }
+  #footer .col {
+    float: none;
+  }
+}
+
+
+
+

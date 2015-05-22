@@ -1,0 +1,37 @@
+{
+	"type": "Collection",
+	"properties": {
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "name",
+			"order": 0
+		},
+		"reach": {
+			"name": "reach",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "reach",
+			"order": 1
+		},
+		"blockJump": {
+			"name": "blockJump",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "blockJump",
+			"order": 2
+		},
+		"approachJump": {
+			"name": "approachJump",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "approachJump",
+			"order": 3
+		}
+	}
+}

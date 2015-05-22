@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+var express = require('express');
+var path = require('path');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+
+
+var HTTP_PORT = process.env.HTTP_PORT || 3000;
+var ENV = process.env.NODE_ENV || 'development';
+var MONGO_HOST = process.env.MONGO_HOST || 'localhost';
+var MONGO_PORT = process.env.MONGO_PORT || 27017;
+
+// setup http + express + socket.io
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server, {'log level': 0});
+
+// view engine setup
+app.set('views', path.join(__dirname, '../views'));
+app.set('view engine', 'jade');
+
+app.use(logger('dev'));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+var routes = require('../routes/index');
+
+app.use('/', routes);
+
+
+
+// setup deployd
+require('deployd').attach(server, {
+    socketIo: io,  // if not provided, attach will create one for you.
+    env: ENV,
+    db: {host:MONGO_HOST, port:MONGO_PORT, name:'leader-board'}
+});
+
+// After attach, express can use server.handleRequest as middleware
+app.use(server.handleRequest);
+
+// start server
+server.listen(HTTP_PORT);

@@ -1,0 +1,368 @@
+@import "../bootstrap/variables.less";
+@import "../bootstrap/mixins.less";
+
+//
+// Forms
+// --------------------------------------------------
+
+.required-label:after,
+.required-key:before {
+  content: " * ";
+  color: @secondary-color;
+  padding-left: 4px;
+}
+
+.required-key:before {
+  margin-left: -15px;
+}
+
+.required-key {
+  float: right;
+}
+
+.form-horizontal .required-label:after {
+  position: absolute;
+  padding-left: 5px;
+}
+
+// gets rid of margin between input and inline error beneath it
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+  margin-bottom: 0px;
+}
+
+//Fix for a bootstrap/uniform conflict
+.radio input[type="radio"] {
+  margin-left: 0;
+}
+
+//Static form text
+  .form-control-static {
+    min-height: 31px;
+    padding-top: 6px;
+  }
+
+// Select2 styling overrides
+form[class*='form-'] .select2-container {
+  width: 100%;
+}
+.select2-container.sr-only {
+  position: absolute;
+}
+
+.select2-search input {
+  background: url('../../select2-3.4.5/select2.png') no-repeat 100% -22px;
+}
+
+.select2-container ul.select2-choices .select2-disabled,
+.select2-drop ul.select2-results .select2-disabled {
+  background-color: #eaeaea;
+  font-style: italic;
+  color: @gray-light;
+}
+.select2-default {
+  color: @gray-light !important;  // overriding important in select2.css
+}
+.select2-drop ul.select2-results .select2-disabled .select2-result-label {
+  cursor: default;
+}
+
+.navbar-form .select2-container.form-control {
+  display: inline-block;
+  width: auto;
+}
+
+// vertically centers a checkbox with other inputs on the same row, when used in a form-vertical
+.form-group.checkbox-inline {
+  @media (min-width: @screen-sm-min) {
+    margin-top: 30px;
+  }
+  margin-bottom: 15px;
+}
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.select-button-menu {
+  min-width: 0;
+}
+
+.dropdown-menu a.selected {
+  background: #ddd;
+}
+
+.input-tree {
+  overflow: auto;
+  max-height: 300px;
+
+  &.form-control {
+    height: auto;
+  }
+  .modal-body & {
+    max-height: 200px;
+  }
+}
+
+.checkbox {
+  padding-left: 0;
+}
+
+.form-vertical .checkbox-controls {
+    @media (min-width: @screen-sm-min) {
+        margin-top: 38px;
+        .form-control-static {
+            padding-top: 0;
+        }
+    }
+}
+
+.form-left-align .form-group {
+  float: none;
+  .clearfix();
+}
+.form-left-align .form-group,
+.form-left-align .form-inline-group {
+  margin-top: 5px;
+  .form-group { margin-top: 0; }
+}
+.form-left-align .form-inline-group > .control-label {
+  padding-top: 11px;
+}
+
+// Default input colspan
+.form-vertical .form-group,
+.form-left-align .form-group .controls,
+.form-left-align .form-inline-group .form-group {
+  .make-xs-column(12);
+  .make-sm-column(6);
+  .make-md-column(4);
+  .make-lg-column(3);
+}
+
+
+// Default inputTextArea colspan
+.form-vertical .form-group.input-textarea,
+.form-left-align .form-group.input-textarea .controls,
+.form-left-align .form-inline-group .form-group.input-textarea {
+  .make-xs-column(12);
+  .make-sm-column(10);
+  .make-lg-column(8);
+}
+
+
+// Default inputUrl colspan, and inputDollarOrPercentWithTypeSelectAddon colspan
+.form-vertical .form-group.input-dollar-percent-select,
+.form-left-align .form-group.input-dollar-percent-select .controls,
+.form-left-align .form-inline-group .form-group.input-dollar-percent-select,
+.form-vertical .form-group.input-url,
+.form-left-align .form-group.input-url .controls,
+.form-left-align .form-inline-group .form-group.input-url {
+  .make-sm-column(6);
+  .make-lg-column(4);
+}
+
+// Default inputDate colspan
+.form-vertical .form-group.input-date,
+.form-left-align .form-group.input-date .controls,
+.form-left-align .form-inline-group .form-group.input-date {
+  .make-sm-column(4);
+  .make-lg-column(3);
+}
+
+// form-horizontal label colspan
+.form-horizontal .form-group .control-label {
+  .make-xs-column(12);
+  .make-sm-column(2);
+}
+// form-horizontal input colspan
+.form-horizontal .form-group .controls {
+  .make-xs-column(12);
+  .make-sm-column(10);
+}
+
+// form-left-align label colspan and styling
+.form-left-align .control-label {
+  .make-xs-column(12);
+  .make-sm-column(2);
+  float: left;
+  text-align: left;
+  padding-top: 6px;
+}
+.form-left-align .form-inline-group .form-group .control-label {
+  padding-top: 0;
+}
+
+// Make colspans wider when in modals (since space is more constrained)
+.modal-body {
+  .form-horizontal .control-label {
+    .make-sm-column(4);
+  }
+  .form-horizontal .form-group .controls {
+    .make-sm-column(7);
+  }
+  .form-vertical .form-group {
+    .make-sm-column(6);
+  }
+  .form-vertical .form-group.input-url {
+    .make-sm-column(8);
+  }
+}
+
+.form-left-align .form-group .controls.checkbox-controls,
+.form-horizontal .form-group .controls.checkbox-controls {
+    .make-sm-column-offset(2);
+}
+// Make colspans wider when nested in a panel with colspan of lg-6 or sm-8
+.col-lg-6, .col-sm-8 {
+    .form-horizontal .control-label,
+    .form-left-align .control-label {
+        .make-sm-column(5);
+    }
+    .form-horizontal .form-group .controls,
+    .form-left-align .form-group .controls {
+        .make-sm-column(6);
+    }
+
+    .form-left-align .control-label {
+        .make-sm-column(4);
+    }
+
+    .form-left-align .form-group .controls {
+        .make-sm-column(7);
+    }
+    .form-vertical .form-group {
+        .make-sm-column(12);
+    }
+
+    .form-horizontal .form-group .controls.checkbox-controls,
+    .form-left-align .form-group .controls.checkbox-controls {
+        .make-sm-column-offset(5);
+    }
+}
+
+/*
+ * Create input colspan classes that can easily be invoked simply by putting [mediaSize]-[span] class on the form-group.
+ * E.g.: <div class="form-group xs-12 sm-10 md-8 lg-6">...</div> would apply the appropriate colspan sizes on either the
+ * form-group itself, or its inner controls div, etc., depending on the type of form (e.g. form-horizontal) the form-group is in.
+ */
+.make-column (@mediaSize, @span) when (@mediaSize = xs) { .make-xs-column(@span); }
+.make-column (@mediaSize, @span) when (@mediaSize = sm) { .make-sm-column(@span); }
+.make-column (@mediaSize, @span) when (@mediaSize = md) { .make-md-column(@span); }
+.make-column (@mediaSize, @span) when (@mediaSize = lg) { .make-lg-column(@span); }
+.make-input-column (@mediaSize, @span) {
+  .form-vertical .form-group.@{mediaSize}-@{span},
+  .form-left-align .form-group.@{mediaSize}-@{span} .controls,
+  .form-left-align .form-inline-group .form-group.@{mediaSize}-@{span},
+  .form-horizontal .form-group.@{mediaSize}-@{span} .controls {
+    .make-column(@mediaSize, @span);
+  }
+  .form-horizontal .form-group.@{mediaSize}-@{span} .control-label {
+    .make-column(@mediaSize, (12 - @span));
+  }
+}
+.make-input-columns-for-media (@mediaSize, @index-j: 1) when (@index-j =< 12) {
+  .make-input-column(@mediaSize, @index-j);
+  .make-input-columns-for-media(@mediaSize, (@index-j + 1));
+}
+.make-input-columns-for-media(xs);
+.make-input-columns-for-media(sm);
+.make-input-columns-for-media(md);
+.make-input-columns-for-media(lg);
+
+
+// Override for inputs inside an inline group
+// Override for labels inside an inline group
+.form-left-align .form-inline-group .form-group .controls,
+.form-left-align .form-inline-group .form-group.input-textarea .controls,
+.form-left-align .form-inline-group .form-group.input-url .controls,
+.form-left-align .form-inline-group .form-group.input-dollar-percent-select .controls,
+.form-left-align .form-inline-group .form-group.input-date .controls,
+.form-left-align .form-inline-group .form-group .control-label {
+  .make-xs-column(12, 0);
+}
+
+.form-inline .controls.checkbox-controls {
+    margin: 24px 14px 0 14px;
+}
+
+.form-readonly {
+  margin-bottom: 15px;
+}
+
+.form-readonly.form-left-align,
+.form-readonly.form-vertical {
+  .form-group {
+    margin: 0 0 2px 0;
+  }
+  .control-label {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+  }
+  .controls {
+    padding: 0;
+    margin: 0;
+  }
+  .form-control-static {
+    min-height: inherit;
+    padding-top: 0;
+  }
+}
+
+.form-readonly.form-vertical .form-group {
+  margin-bottom: 15px;
+}
+
+.panel-tight .form-readonly.form-vertical .form-group {
+  margin-bottom: 8px;
+}
+
+.has-error {
+  .input-group-addon,
+  .input-group-btn > .btn {
+    border-color: @state-danger-text;
+  }
+}
+.has-warning {
+  .input-group-addon,
+  .input-group-btn > .btn {
+    border-color: @state-warning-text;
+  }
+}
+.has-success {
+  .input-group-addon,
+  .input-group-btn > .btn {
+    border-color: @state-success-text;
+  }
+}
+
+.disclaimer {
+    font-size: @font-size-small;
+    color: @text-muted;
+    line-height: @line-height-small;
+}
+
+.inlineHelpMessage {
+  font-size: @font-size-small;
+  color: @text-muted;
+  line-height: @line-height-small;
+  font-weight: normal;
+  padding-left: 18px;
+}
+
+.form-horizontal .inlineHelpMessage, .form-left-align .inlineHelpMessage {
+  display: block;
+  padding-left:0;
+}
+
+.form-left .inlineHelpMessage, .form-vertical .inlineHelpMessage {
+  padding-left: 18px;
+}
+
+.form-inline .inlineHelpMessage {
+  padding-left: 4px;
+}

@@ -1,0 +1,73 @@
+@import "../bootstrap/variables.less";
+@import "../bootstrap/mixins.less";
+
+
+.alert-popdown {
+    position: absolute;
+    padding: 6px 12px 5px;
+    top: 0;
+    left: 50%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top-width: 0;
+    z-index: 1;
+    display: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 96%;
+    .translate(-50%, 0);
+
+    &.alert-dismissible {
+        padding-right: 32px;
+    }
+
+    body > & {
+        position: fixed;
+        padding: 8px 14px 7px;
+
+        @media (max-width: @screen-xs-max) {
+            border-radius: 0;
+            border-width: 0 0 1px 0;
+            width: 100%;
+            max-width: 100%;
+            text-align: center;
+            white-space: normal;
+            left: 0;
+            .translate(0, 0);
+        }
+
+        &.alert-dismissible {
+            padding-right: 34px;
+        }
+    }
+    .popdown-message {
+        display: block;
+        float: left;
+        width: 80%;
+    }
+}
+
+.alert-info a {
+  color: @brand-primary;
+}
+
+.errorPage-message {
+  color: @gray;
+  font-size:1.3em;
+  padding:12px 0;
+}
+
+.errorPage-message .icon-warning-sign {
+  font-size:1.5em;
+}
+
+// Help block padding
+.help-block {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.has-error .help-block {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
