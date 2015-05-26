@@ -1,4 +1,5 @@
 extends layout
+script(src='angular/playerController.js')
 block content
   #content-header.row
     .col-xs-12.col-md-7
@@ -9,4 +10,26 @@ block content
       .row
         .col-xs-12
           .panel.panel-default
-            .panel-body.clearfix Hello world
+            .panel-body.clearfix
+                .col-xs-12.col-md-12
+                    #player-div
+
+    // Display Queries
+    script.
+        dpd.player.get(function (res, err) {
+            if (err) return console.log(err);
+            $('#player-div')
+                    .append($("<table id='player-table' class='table table-striped'>"))
+                    .append($("<tr><th>Name</th><th>Reach</th></tr>"))
+                    .append($("</table>"));
+
+            for (var i in res) {
+                $('#player-table')
+                        .append($("<tr>"))
+                        .append($("<td></td>")
+                                .text(res[i].name))
+                        .append($("<td></td>")
+                                .text(res[i].reach))
+                        .append($("</tr>"));
+            }
+        });

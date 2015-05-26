@@ -1,0 +1,16 @@
+var leaderBoard = angular.module("LeaderBoard", ["ngRoute"]);
+
+leaderBoard.controller("PlayerCtrl", [ "$http",
+    function($http) {
+        var vm = this;
+
+        $http.get('http://localhost:3000/player').
+            success(function(data, status, headers, config) {
+                vm.playerList = data;
+                console.log(vm.playerList);
+            }).
+            error(function(data, status, headers, config) {
+                alert(status + ": " + data);
+            });
+
+    }]);
