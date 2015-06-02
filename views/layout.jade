@@ -1,8 +1,8 @@
 doctype html
-html(ng-app='')
+html(ng-app='LeaderBoard')
   include headcss
 
-  body
+  body(ng-controller='PlayerCtrl as playerCtrl')
     .starter-template
       include header
       .container.content
@@ -13,3 +13,6 @@ html(ng-app='')
 
       script(src='js/jquery-2.1.1.js')
       script(src='js/bootstrap.js')
+      script(src='js/angular.js')
+      script(src='js/angular-route.js')
+      script(src='angular/playerController.js')

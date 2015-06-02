@@ -1,8 +1,10 @@
 var leaderBoard = angular.module("LeaderBoard", ["ngRoute"]);
 
-leaderBoard.controller("PlayerCtrl", [ "$http",
-    function($http) {
+leaderBoard.controller("PlayerCtrl", [ "$http", "$location",
+    function($http, $location) {
         var vm = this;
+        vm.activeMenu = "";
+        vm.testy = "hello";
 
         $http.get('http://localhost:3000/player').
             success(function(data, status, headers, config) {
@@ -12,5 +14,14 @@ leaderBoard.controller("PlayerCtrl", [ "$http",
             error(function(data, status, headers, config) {
                 alert(status + ": " + data);
             });
+
+        vm.isActive = function(route) {
+            vm.testy = $location.path();
+            return route === $location.path();
+        }
+
+        vm.menuSelect = function(menuItem) {
+            vm.activeMenu = menuItem;
+        }
 
     }]);

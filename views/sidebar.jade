@@ -1,7 +1,10 @@
 ul.col-md-2.nav.nav-pills.nav-stacked
-  li.active(role='presentation')
+  li(role='presentation', ng-class="{active:playerCtrl.isActive('/')}")
+    a(href='#/')
+      | All
+  li(role='presentation', ng-class="{active:playerCtrl.isActive('/vertical')}")
     a(href='#vertical')
       | Vertical
-  li(role='presentation')
-    a(href='#servespeed')
+  li(role='presentation', ng-class="{active:playerCtrl.isActive('/serve')}")
+    a(href='#serve')
       | Serve Speed
