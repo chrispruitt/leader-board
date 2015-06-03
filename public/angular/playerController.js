@@ -6,7 +6,7 @@ leaderBoard.controller("PlayerCtrl", [ "$http", "$location",
         vm.activeMenu = "";
         vm.testy = "hello";
 
-        $http.get('http://localhost:3000/player').
+        $http.get('http://pru.servequake.com:3000/player').
             success(function(data, status, headers, config) {
                 vm.playerList = data;
                 console.log(vm.playerList);

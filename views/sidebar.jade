@@ -1,6 +1,6 @@
 ul.col-md-2.nav.nav-pills.nav-stacked
-  li(role='presentation', ng-class="{active:playerCtrl.isActive('/')}")
-    a(href='#/')
+  li(role='presentation', ng-class="{active:(playerCtrl.isActive('/all') || playerCtrl.isActive(''))}")
+    a(href='#all')
       | All
   li(role='presentation', ng-class="{active:playerCtrl.isActive('/vertical')}")
     a(href='#vertical')

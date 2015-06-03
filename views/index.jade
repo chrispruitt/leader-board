@@ -11,9 +11,9 @@ block content
                     table.table.table-striped
                         thead
                             th Name
-                            th(ng-show="playerCtrl.isActive('/vertical') || playerCtrl.isActive('/')") Vertical
-                            th(ng-show="playerCtrl.isActive('/serve') || playerCtrl.isActive('/')") Serve
+                            th(ng-show="playerCtrl.isActive('/vertical') || playerCtrl.isActive('/all') || playerCtrl.isActive('')") Vertical
+                            th(ng-show="playerCtrl.isActive('/serve') || playerCtrl.isActive('/all') || playerCtrl.isActive('')") Serve
                         tr(ng-repeat='player in playerCtrl.playerList | orderBy:player.serve:reverse track by player.id')
                             td {{ player.name }}
-                            td(ng-show="playerCtrl.isActive('/vertical') || playerCtrl.isActive('/')") {{ player.approachJump - player.reach }}
-                            td(ng-show="playerCtrl.isActive('/serve') || playerCtrl.isActive('/')") {{ player.serve }}
+                            td(ng-show="playerCtrl.isActive('/vertical') || playerCtrl.isActive('/all') || playerCtrl.isActive('')") {{ player.approachJump - player.reach }}
+                            td(ng-show="playerCtrl.isActive('/serve') || playerCtrl.isActive('/all') || playerCtrl.isActive('')") {{ player.serve }}
